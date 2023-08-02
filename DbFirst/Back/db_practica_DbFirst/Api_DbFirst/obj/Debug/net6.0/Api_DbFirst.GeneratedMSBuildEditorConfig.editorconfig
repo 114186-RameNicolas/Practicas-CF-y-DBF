@@ -1,0 +1,16 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Api_DbFirst
+build_property.RootNamespace = Api_DbFirst
+build_property.ProjectDir = E:\universidad\2do cuatrimestre\Prog II\practicaparafinal\Unidada 4\db_practica_DbFirst\Api_DbFirst\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\universidad\2do cuatrimestre\Prog II\practicaparafinal\Unidada 4\db_practica_DbFirst\Api_DbFirst
+build_property._RazorSourceGeneratorDebug = 
