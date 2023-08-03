@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj": {}
+    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj": {}
   },
   "projects": {
-    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj": {
+    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
+        "projectUniqueName": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
         "projectName": "Clases",
-        "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
+        "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\obj\\",
+        "outputPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

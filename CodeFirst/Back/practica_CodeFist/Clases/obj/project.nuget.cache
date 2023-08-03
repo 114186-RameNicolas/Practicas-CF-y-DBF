@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Oqj8iwW7O0UsKqulC/g5c/MTmflpZ9PnyZGlPcgbplxQXoBPeCS966EHo2/GIT2T6kI6a7+69BmQ2RrZahrgMw==",
+  "dgSpecHash": "4bRZQtRLHI0KxceITA8d1fuc8efK/xj4dNQrWjISJGsHsAyrufc7JDdJUnY8YlOc2Nj84BhKB5EnKb6DXrXPgQ==",
   "success": true,
-  "projectFilePath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -11,5 +11,7 @@ public partial class Sucursale
 
     public Guid IdCiudad { get; set; }
 
+    public Ciudade Ciudad { get; set; }
+
     public virtual Ciudade IdCiudadNavigation { get; set; } = null!;
 }

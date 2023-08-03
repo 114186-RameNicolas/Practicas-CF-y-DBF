@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace Clases.Context
 {
-    internal class ContextBD : DbContext
+    public class ContextBD : DbContext
     {
+        public ContextBD()
+        {
+
+        }
         public ContextBD(DbContextOptions options) : base(options)
         {
 

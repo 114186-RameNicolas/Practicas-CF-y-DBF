@@ -472,16 +472,6 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
-      },
-      "Clases/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Clases.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Clases.dll": {}
-        }
       }
     }
   },
@@ -1339,16 +1329,10 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Clases/1.0.0": {
-      "type": "project",
-      "path": "../Clases/Clases.csproj",
-      "msbuildProject": "../Clases/Clases.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Clases >= 1.0.0",
       "FluentValidation >= 11.6.0",
       "FluentValidation.AspNetCore >= 11.3.0",
       "MediatR >= 12.1.1",
@@ -1365,11 +1349,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
+      "projectUniqueName": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
       "projectName": "api_CodeFirst",
-      "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
+      "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\obj\\",
+      "outputPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1385,11 +1369,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj": {
-              "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\Clases\\Clases.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

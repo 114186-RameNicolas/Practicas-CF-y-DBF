@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t3wTd3bgFpQ8Yi+eyL4RBZYbHtRXW64uhT0dR+WOU+rlb3xrPDDJnTuGXKWFXQvQ3cvgHbF3g/vLsUNP7LWCsA==",
+  "dgSpecHash": "3N2VA8hRboVb5+VRROmBHXkfE4aUBmyt7udbphm6Buyd9VtRM47n1+BI3gkT+fKzDcxsjRnUexAdjctQ462dJg==",
   "success": true,
-  "projectFilePath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
+  "projectFilePath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\CodeFirst\\Back\\practica_CodeFist\\api_CodeFirst\\api_CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.6.0\\fluentvalidation.11.6.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
