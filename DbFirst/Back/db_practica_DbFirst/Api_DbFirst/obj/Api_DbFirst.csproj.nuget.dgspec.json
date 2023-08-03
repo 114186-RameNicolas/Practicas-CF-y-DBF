@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\universidad\\2do cuatrimestre\\Prog II\\practicaparafinal\\Unidada 4\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj": {}
+    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\DbFirst\\Back\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj": {}
   },
   "projects": {
-    "E:\\universidad\\2do cuatrimestre\\Prog II\\practicaparafinal\\Unidada 4\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj": {
+    "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\DbFirst\\Back\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\universidad\\2do cuatrimestre\\Prog II\\practicaparafinal\\Unidada 4\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj",
+        "projectUniqueName": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\DbFirst\\Back\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj",
         "projectName": "Api_DbFirst",
-        "projectPath": "E:\\universidad\\2do cuatrimestre\\Prog II\\practicaparafinal\\Unidada 4\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj",
+        "projectPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\DbFirst\\Back\\db_practica_DbFirst\\Api_DbFirst\\Api_DbFirst.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "E:\\universidad\\2do cuatrimestre\\Prog II\\practicaparafinal\\Unidada 4\\db_practica_DbFirst\\Api_DbFirst\\obj\\",
+        "outputPath": "E:\\universidad\\3er Cuatrimestre\\Programacion III\\! practicar\\Practicas-CF-y-DBF\\DbFirst\\Back\\db_practica_DbFirst\\Api_DbFirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

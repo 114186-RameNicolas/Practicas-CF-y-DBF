@@ -24,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\EmpleadoBusiness\Command\" />
-    <Folder Include="Business\EmpleadoBusiness\Queries\" />
+    <Folder Include="Service\EmpleadoBusiness\Validations\" />
     <Folder Include="Models\" />
     <Folder Include="Data\" />
   </ItemGroup>
