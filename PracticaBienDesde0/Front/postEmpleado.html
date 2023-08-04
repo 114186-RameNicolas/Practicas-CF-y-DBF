@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Formulario</title>
+</head>
+<body>
+    <section>
+        <div class="container mt-4">
+          <form id="empleadoForm">   
+                  <legend>Formulario de Carga de Empleado</legend>
+                  <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Nombre</label>
+                    <input type="text" id="txtNombre" class="form-control" placeholder="Nombre">
+                  </div>
+                  <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Apellido</label>
+                    <input type="text" id="txtApellido" class="form-control" placeholder="Apellido">
+                  </div>
+                  <div class="mb-3">
+                    <label for="selectSucursales" class="form-label">Sucursal</label>
+                    <select id="selectSucursales" class="form-select">
+                      <option>Seleccionar Sucursal</option>
+                      <option>Sucursal Cordoba</option>
+                      <option>Sucursal Buenos Aires</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="selectCiudad" class="form-label">Ciudad</label>
+                    <select id="selectCiudad" class="form-select">
+                      <option>Seleccionar Ciudad</option>
+                      <option>Cordoba</option>
+                      <option>Buenos Aires</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="cargo" id="rdbCargo1" value="cargo1">
+                        <label class="form-check-label" for="rdbCargo1">Cargo 1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="cargo" id="rdbCargo2" value="cargo2">
+                        <label class="form-check-label" for="rdbCargo2">Cargo 2</label>
+                    </div>
+                </div>
+                  <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">DNI</label>
+                    <input type="text" id="txtDNI" class="form-control" placeholder="DNI">
+                  </div>
+                  <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Fecha de alta</label>
+                    <input type="date" id="dtFechaDeAlta" class="form-control" placeholder="Fecha de alta">
+                  </div>
+                  <button id="enviar"type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </section>
+    <script>
+      function generateUUID() {
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              const r = Math.random() * 16 | 0,
+                  v = c === 'x' ? r : (r & 0x3 | 0x8);
+              return v.toString(16);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('empleadoForm');
+        const rdbCargo1 = document.getElementById("rdbCargo1");
+        const rdbCargo2 = document.getElementById("rdbCargo2");
+        const selectSucursales = document.getElementById("selectSucursales");
+        const selectCiudad = document.getElementById("selectCiudad");
+
+        const cargo = {
+            id: null,
+            nombre: null
+        };
+
+        const sucursal = {
+            id: null,
+            nombre: null
+        };
+
+        const ciudad = {
+          id: null,
+          nombre: null
+        }
+
+          // Evento para rdbCargo1
+          rdbCargo1.addEventListener("change", function() {
+              if (rdbCargo1.checked) {
+                  // Asignar valores para Cargo 1
+                  cargo.id = "bb340a01-d233-40cb-9af4-e214437aed71";
+                  cargo.nombre = "Cargo 1";
+              }
+          });
+
+          // Evento para rdbCargo2
+          rdbCargo2.addEventListener("change", function() {
+              if (rdbCargo2.checked) {
+                  // Asignar valores para Cargo 2
+                  cargo.id = "1425b46c-4ab9-486b-ba65-33993acd5707";
+                  cargo.nombre = "Cargo 2";
+              }
+          });
+
+          selectSucursales.addEventListener("change", function() {
+          const selectedOption = selectSucursales.options[selectSucursales.selectedIndex].text;
+
+            if (selectedOption === "Sucursal Cordoba") {
+                sucursal.id = "4c984952-cf03-4bab-9dc4-6783d6d94034";
+                sucursal.nombre = "Sucursal Cordoba";
+            } else if (selectedOption === "Sucursal Buenos Aires") {
+                sucursal.id = "59058248-992f-4fdf-8b50-7252472b930d";
+                sucursal.nombre = "Sucursal Buenos Aires";
+            } else {
+                throw new Exception("Error")
+            }
+          });
+
+          selectCiudad.addEventListener("change", function() {
+          const selectedOption2 = selectCiudad.options[selectCiudad.selectedIndex].text;
+
+            if (selectedOption2 === "Cordoba") {
+                ciudad.id = "708f6fc2-6b58-4693-a7e5-2e163645e40a";
+                ciudad.nombre = "Cordoba";
+            } else if (selectedOption2 === "Buenos Aires") {
+              ciudad.id = "3bcf51a5-c203-493d-ad33-f0221a77dcca";
+              ciudad.nombre = "Buenos Aires";
+            } else {
+                throw new Exception("Error")
+            }
+          });
+
+          form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const data = {
+            id: generateUUID(), // Generar un ID único (debes definir esta función)
+            nombre: document.getElementById('txtNombre').value,
+            apelldio: document.getElementById('txtApellido').value,
+            dni: document.getElementById('txtDNI').value,
+            sucursal: {
+                id: sucursal.id,
+                nombre: sucursal.nombre,
+                ciudad: {
+                    id: ciudad.id, 
+                    nombre: ciudad.nombre // Cambiar por el nombre real de la ciudad
+                }
+            },
+            cargo: {
+                id: cargo.id,
+                nombre: cargo.nombre
+            },
+            fechaAlta: new Date().toISOString() // Fecha actual en formato ISO
+        };
+
+        try {
+            const response = await fetch('https://localhost:7276/post/empleado', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const empleado = await response.json();
+                console.log('Empleado creado:', empleado);
+            } else {
+                console.error('Error al crear empleado:', response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+});
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>LISTA</title>
+</head>
+<body>
+
+    <section>
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Sucursal</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Fecha Alta</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaEmpleadosBody">
+                </tbody>
+              </table>
+        </div>
+
+    </section>
+    <script>
+      async function getEmpleados() {
+          const response = await fetch('https://localhost:7276/obtener/todos'); // Cambia la URL de la API si es necesario
+          const empleados = await response.json();
+  
+          const tablaEmpleadosBody = document.getElementById('tablaEmpleadosBody');
+          empleados.forEach(empleado => {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                  <td>${empleado.id}</td>
+                  <td>${empleado.nombre}</td>
+                  <td>${empleado.apellido}</td>
+                  <td>${empleado.cargo.nombre}</td>
+                  <td>${empleado.sucursal.nombre}</td>
+                  <td>${empleado.dni}</td>
+                  <td>${empleado.fechaAlta}</td>
+              `;
+              tablaEmpleadosBody.appendChild(row);
+          });
+      }
+      getEmpleados();
+
+    </script>
+  
+  
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
