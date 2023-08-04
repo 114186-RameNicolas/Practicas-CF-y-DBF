@@ -19,9 +19,5 @@ namespace API_CodeFirst_Empleado.Models
         public string DNI { get; set; } = null!;
         public DateTime FechaAlta { get; set; }
 
-        [ForeignKey("IdJefe")]
-        public Guid IdJefe { get; set; }
-        public Empleado Jefe { get; set; }
-
     }
 }
