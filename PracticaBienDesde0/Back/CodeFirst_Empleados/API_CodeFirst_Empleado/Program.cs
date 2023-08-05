@@ -1,4 +1,5 @@
 using API_CodeFirst_Empleado.Data;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -20,6 +21,12 @@ builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 });
+
+builder.Services.AddFluentValidation(config =>
+{
+    config.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});
+
 
 builder.Services.AddCors(config =>
 {

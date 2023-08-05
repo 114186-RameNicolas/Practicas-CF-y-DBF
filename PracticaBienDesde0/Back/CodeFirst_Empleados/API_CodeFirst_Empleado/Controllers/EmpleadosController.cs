@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Command.PostEmpleado;
+using static API_CodeFirst_Empleado.Service.EmpleadosServices.Command.PutEmpleado;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Queries.GetAllEmpleado;
+using static API_CodeFirst_Empleado.Service.EmpleadosServices.Queries.GetEmpleadoByNombre;
 
 namespace API_CodeFirst_Empleado.Controllers
 {
@@ -30,6 +32,13 @@ namespace API_CodeFirst_Empleado.Controllers
             return await _mediator.Send(new GetAllEmpleadoQuery());
         }
 
+        [HttpGet]
+        [Route("/obtener/por/nombre")]
+        public async Task<List<EmpleadoDto>> getEmpleadosPorNombre(string nombre)
+        {
+            return await _mediator.Send(new GetEmpleadoByNombreQuery{ Nombre = nombre});
+        }
+
         [HttpPost]
         [Route("/post/empleado")]
         public async Task<IActionResult> postEmpleado([FromBody] PostEmpleadoCommand postEmpleado)
@@ -44,6 +53,13 @@ namespace API_CodeFirst_Empleado.Controllers
             var json = JsonSerializer.Serialize(empleado, jsonOptions);
 
             return Ok(json);
+        }
+
+        [HttpPut]
+        [Route("actualizar/empleado")]
+        public async Task<Empleado> putEmpleado([FromBody] PutEmpleadoCommand putEmpleado)
+        {
+            return await _mediator.Send(putEmpleado);
         }
     }
 }

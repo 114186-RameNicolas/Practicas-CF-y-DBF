@@ -1,6 +1,7 @@
 ﻿using API_CodeFirst_Empleado.Data;
 using API_CodeFirst_Empleado.Dtos;
 using API_CodeFirst_Empleado.Models;
+using API_CodeFirst_Empleado.Service.EmpleadosServices.Validations;
 using MediatR;
 using System.Net;
 
@@ -10,7 +11,6 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Command
     {
         public class PostEmpleadoCommand : IRequest<Empleado>
         {
-            public Guid Id { get; set; }
             public string Nombre { get; set; }
             public string Apelldio { get; set; }
             public string DNI { get; set; }
@@ -23,16 +23,19 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Command
         public class PostEmpleadoCommandHandler : IRequestHandler<PostEmpleadoCommand , Empleado>
         {
             private readonly ApplicationContext _context;
+            private readonly PostEmpleadoValidation _validation;
 
-            public PostEmpleadoCommandHandler(ApplicationContext context)
+            public PostEmpleadoCommandHandler(ApplicationContext context, PostEmpleadoValidation validationRules)
             {
                 _context = context;
+                _validation = validationRules;
             }
 
             public async Task<Empleado> Handle(PostEmpleadoCommand request, CancellationToken cancellationToken)
             {
                 try
                 {
+                    _validation.Validate(request);
                     using (var transaction = _context.Database.BeginTransaction())
                     {
 

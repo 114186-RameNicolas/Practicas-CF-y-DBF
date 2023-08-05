@@ -33,6 +33,7 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Queries
                     var empleados = await _context.Empleado
                         .Include(e => e.Cargo)
                         .Include(e => e.Sucursal)
+                        .ThenInclude(s => s.Ciudad)
                         .ToListAsync(); 
                     
                     if (empleados.Count != 0)
@@ -47,6 +48,12 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Queries
                             {
                                 Id = e.Sucursal.Id,
                                 Nombre = e.Sucursal.Nombre,
+
+                                Ciudad = new CiudadDto
+                                {
+                                    Id = e.Sucursal.Ciudad.Id,
+                                    Nombre = e.Sucursal.Ciudad.Nombre
+                                }
                             },
 
                             Cargo = new CargoDto
