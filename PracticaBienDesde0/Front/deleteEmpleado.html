@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Delete</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <form id="empleadoForm">   
+            <legend>Empleado</legend>
+            <div class="row align-items-start">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Nombre</label>
+                            <input type="text" id="txtNombre" class="form-control" placeholder="Nombre">
+                        </div>
+                    </div>
+                </div>
+                <button id="Consultar" type="button" class="btn btn-primary">Consultar</button>
+            </div>
+        </form>   
+    </div>
+
+    <section>
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Sucursal</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Fecha Alta</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEmpleadosBody">
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="container mt-4"> 
+                <div class="row align-items-start">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="disabledTextInput" class="form-label">ID</label>
+                                <input type="text" id="txtId" class="form-control" placeholder="Ingresar id aqui...">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="Eliminar" type="button" class="btn btn-danger">Eliminar</button>
+                </div> 
+        </div>
+    
+
+    <script>
+        document.getElementById('Consultar').addEventListener('click', getEmpleadoByNombre);
+        document.getElementById('Eliminar').addEventListener('click', deleteEmpleadoByNombre);
+        async function getEmpleadoByNombre(){
+            var nombre = document.getElementById('txtNombre').value; // Obtenemos el valor del campo de texto
+            const response = await fetch('https://localhost:7276/obtener/por/nombre?nombre=' + nombre);
+            const empleados = await response.json();
+
+                
+            const tablaEmpleadosBody = document.getElementById('tablaEmpleadosBody');
+            tablaEmpleadosBody.innerHTML = ''
+            empleados.forEach(empleado => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${empleado.id}</td>
+                    <td>${empleado.nombre}</td>
+                    <td>${empleado.apellido}</td>
+                    <td>${empleado.cargo.nombre}</td>
+                    <td>${empleado.sucursal.nombre}</td>
+                    <td>${empleado.dni}</td>
+                    <td>${empleado.fechaAlta}</td>
+                `;
+                tablaEmpleadosBody.appendChild(row);
+            });
+        }
+        getEmpleadoByNombre();
+
+        async function deleteEmpleadoByNombre()
+        {
+            var id = document.getElementById('txtId').value; // Obtener el valor del campo de ID
+
+            if (!id) {
+                alert('Por favor, ingrese un ID válido.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://localhost:7276/api/Empleados/delete/empleado?id=${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Empleado eliminado correctamente.');
+                } else {
+                    alert('Error al eliminar el empleado.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un error en la solicitud.');
+            } 
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
