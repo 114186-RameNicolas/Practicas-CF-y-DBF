@@ -67,9 +67,18 @@ namespace API_CodeFirst_Empleado.Controllers
 
         [HttpPut]
         [Route("actualizar/empleado")]
-        public async Task<Empleado> putEmpleado([FromBody] PutEmpleadoCommand putEmpleado)
+        public async Task<IActionResult> putEmpleado([FromBody] PutEmpleadoCommand putEmpleado)
         {
-            return await _mediator.Send(putEmpleado);
+            var jsonOption = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            var empleado = await _mediator.Send(putEmpleado);
+
+            var json = JsonSerializer.Serialize(empleado, jsonOption);
+
+            return Ok(json);
         }
 
         [HttpDelete]

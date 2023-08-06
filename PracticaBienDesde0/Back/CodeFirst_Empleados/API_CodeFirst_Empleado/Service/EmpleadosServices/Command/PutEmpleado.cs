@@ -15,8 +15,8 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Command
             public string Nombre { get; set; } = null!;
             public string Apellido { get; set; } = null!;
             public string DNI { get; set; } = null!;
-            public SucursalDto SucursalDto { get; set; }
-            public CargoDto Cargo { get; set; } = null!;
+            public SucursalDto Sucursal { get; set; }
+            public CargoDto Cargo { get; set; } 
             public DateTime FechaAlta { get; set; }
         }
 
@@ -31,38 +31,31 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Command
 
             public async Task<Empleado> Handle(PutEmpleadoCommand request, CancellationToken cancellationToken)
             {
-                Empleado em = new Empleado();
+                EmpleadoDto em = new EmpleadoDto();
                 try
                 {
                     var empleado = await _context.Empleado.FirstOrDefaultAsync(p => p.Id == request.Id);
 
-                    if(empleado  != null)
+                    if (empleado != null)
                     {
-                        em.Nombre = request.Nombre;
-                        em.Apellido = request.Apellido;
-                        em.DNI = request.DNI;
-                        {
-                            Sucursal s = new Sucursal();
-                            s.Id = request.SucursalDto.Id;
-                            s.Nombre = request.SucursalDto.Nombre;
-                            {
-                                Ciudad ciu = new Ciudad();
-                                ciu.Id = request.SucursalDto.Ciudad.Id;
-                                ciu.Nombre = request.SucursalDto.Ciudad.Nombre;
-                            }
-                        }
-                        {
-                            Cargo c = new Cargo();
-                            c.Id = request.Cargo.Id;
-                            c.Nombre = request.Cargo.Nombre;
-                        }
-                        em.FechaAlta = request.FechaAlta;
-                        await _context.Empleado.AddAsync(empleado);
+                        empleado.Nombre = request.Nombre;
+                        empleado.Apellido = request.Apellido;
+                        empleado.DNI = request.DNI;
+
+                        // Obten las instancias existentes de Sucursal, Ciudad y Cargo
+                        var sucursal = await _context.Sucursal.FindAsync(request.Sucursal.Id);
+                        var ciudad = await _context.Ciudad.FindAsync(request.Sucursal.Ciudad.Id);
+                        var cargo = await _context.Cargo.FindAsync(request.Cargo.Id);
+
+                        // Asigna las instancias obtenidas a las propiedades del empleado
+                        empleado.Sucursal = sucursal;
+                        sucursal.Ciudad = ciudad;
+                        empleado.Cargo = cargo;
+                        empleado.FechaAlta = request.FechaAlta;
+                        
                         await _context.SaveChangesAsync();
 
-                        
-                        //em.Exito = true;
-                        //em.Codigo = HttpStatusCode.OK;
+                        return empleado;
                     }
                     else
                     {
@@ -74,9 +67,9 @@ namespace API_CodeFirst_Empleado.Service.EmpleadosServices.Command
                     //em.Error = e.Message;
                     //em.Exito = false;
                     //em.Codigo = HttpStatusCode.NotFound;
+                    throw e;
                 }
                 
-                return em;
             
             }
 
