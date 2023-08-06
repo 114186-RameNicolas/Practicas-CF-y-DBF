@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static API_CodeFirst_Empleado.Service.EmpleadosServices.Command.DeleteEmpleado;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Command.PostEmpleado;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Command.PutEmpleado;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Queries.GetAllEmpleado;
 using static API_CodeFirst_Empleado.Service.EmpleadosServices.Queries.GetEmpleadoByNombre;
+using static API_CodeFirst_Empleado.Service.EmpleadosServices.Queries.GetEmpleadoByNombreAndApellido;
 
 namespace API_CodeFirst_Empleado.Controllers
 {
@@ -36,8 +38,16 @@ namespace API_CodeFirst_Empleado.Controllers
         [Route("/obtener/por/nombre")]
         public async Task<List<EmpleadoDto>> getEmpleadosPorNombre(string nombre)
         {
-            return await _mediator.Send(new GetEmpleadoByNombreQuery{ Nombre = nombre});
+            return await _mediator.Send(new GetEmpleadoByNombreQuery { Nombre = nombre });
         }
+
+        [HttpGet]
+        [Route("/obtener/por/nombreyApellido")]
+        public async Task<EmpleadoDto> getEmpleadosPorNombreAndApelldio(string nombre, string apellido)
+        {
+            return await _mediator.Send(new GetEmpleadoByNombreAndApellidoQuery { Nombre = nombre , Apellido = apellido}) ;
+        }
+
 
         [HttpPost]
         [Route("/post/empleado")]
@@ -60,6 +70,13 @@ namespace API_CodeFirst_Empleado.Controllers
         public async Task<Empleado> putEmpleado([FromBody] PutEmpleadoCommand putEmpleado)
         {
             return await _mediator.Send(putEmpleado);
+        }
+
+        [HttpDelete]
+        [Route("delete/empleado")]
+        public async Task<Empleado> deleteEmpleado(Guid id)
+        {
+            return await _mediator.Send(new DeleteEmpleadoCommand { Id = id});
         }
     }
 }
